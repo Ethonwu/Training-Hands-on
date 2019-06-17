@@ -1,6 +1,6 @@
 # Hive Hands on
-## 1. Use hive -e option run sql command and run .hql
-### 1.1 Using hive -e query 
+## 1. Using ```hive -e``` option run sql command and using ```hive -f``` run .hql file
+### 1.1 Using hive ```-e``` query 
 ```sh
 hive -e "select * from DBname.TableName limit 10;"
 ```
@@ -16,13 +16,12 @@ vim query.hql
 ```sh
 hive -f query.hql
 ```
-## 2. Goto hive and query
+## 2. Using hive cli and query
 ### 2.1 Goto hive cli mode 
 ```sh
 $ hive
 hive> show databases;
 hive> select * from default.partquefuletable limit 10;
-
 ```
 ### 2.2 Run OS command in hive cli
 ```sh
@@ -55,8 +54,8 @@ customer_id int,
 spending int,
 define string)
 row format delimited 
-fields terminated by ',';
-location '<Your_HDFS_dis_path>'
+fields terminated by ','
+location '<Your_HDFS_dis_path>';
 -- Check create sucessful in HDFS or not
 hive> exit;
 $ hadoop dfs -ls '<Your_HDFS_dis_path>'
@@ -98,9 +97,9 @@ fields terminated by ',';
 ### 4.3 Import CSV to Hive table
 #### 4.3.1 None overwrite
 ```sh
-load data inpath '<Your_HDFS_dis_path>' into table YourDBname.YourTableName;
+hive> load data inpath '<Your_HDFS_dis_path>' into table YourDBname.YourTableName;
 ```
 #### 4.3.2 Overwrite, mean if this table already had data, it will recover that 
 ```sh
-load data inpath '<Your_HDFS_dis_path>' overwrite into table YourDBname.YourTableName;
+hive> load data inpath '<Your_HDFS_dis_path>' overwrite into table YourDBname.YourTableName;
 ```
