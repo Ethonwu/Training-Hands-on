@@ -96,11 +96,11 @@ row format delimited
 fields terminated by ',';
 ```
 ### 4.3 Import CSV to Hive table
-#### None overwrite
+#### 4.3.1 None overwrite
 ```sh
 load data inpath '<Your_HDFS_dis_path>' into table YourDBname.YourTableName;
 ```
-#### Overwrite, mean if this table already had data, it will recover that 
+#### 4.3.2 Overwrite, mean if this table already had data, it will recover that 
 ```sh
 load data inpath '<Your_HDFS_dis_path>' overwrite into table YourDBname.YourTableName;
 ```
